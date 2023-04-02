@@ -112,7 +112,6 @@
     "files.trimTrailingWhitespace": true,
     "workbench.startupEditor": "none",
     "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor",
         "*.svg": "svgPreviewer.customEditor"
     },
     "workbench.editor.untitled.hint": "hidden",
