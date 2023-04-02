@@ -3,12 +3,14 @@
 #include <iostream>
 #include "config.hpp"
 
-void print_hello_world() {
+int print_hello_world() {
   std::cout << project_name << '\n';
 
   std::cout << project_version << '\n';
 
   std::cout << "Hello World\n";
+
+  return 1;
 }
 
 unsigned int factorial(unsigned int n) {

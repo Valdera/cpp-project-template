@@ -48,5 +48,6 @@ Library code goes into [src/](src/), main program code in [app/](app) and tests 
 - Code Coverage (only on GNU|Clang): lcov, gcovr
 
 ## Reference
+
 - [C++ Project Template](https://github.com/franneck94/CppProjectTemplate)
 - [Google Style Clang Format](https://github.com/kehanXue/google-style-clang-format)

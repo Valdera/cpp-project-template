@@ -9,6 +9,8 @@
 #include "config.hpp"
 
 int main(int argc, char** argv) {
+  int i = 0;
+
   auto welcome_message =
       fmt::format("Welcome to {} v{}\n", project_name, project_version);
   spdlog::info(welcome_message);
