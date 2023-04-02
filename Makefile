@@ -32,10 +32,6 @@ dep-graph:
 prepare:
 	rm -rf build
 	mkdir build
-
-prepare_conan:
-	rm -rf build
-	mkdir build
 	cd build && conan install .. $(CONAN_FLAGS)
 
 init_cmake:
