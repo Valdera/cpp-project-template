@@ -1,18 +1,10 @@
 if(ENABLE_TESTING)
-    set(TEST_MAIN
-        "unit_tests"
-    )
+    set(TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
 
-    set(TEST_SOURCES
-        "main.cpp"
-    )
+    add_executable(${UNIT_TEST_NAME} ${TEST_SOURCES})
 
-
-    add_executable(${TEST_MAIN} ${TEST_SOURCES})
-    target_link_libraries(${TEST_MAIN} PUBLIC
-        ${LIBRARY_NAME}
-        ${CONAN_CATCH2}
-    )
+    target_link_libraries(${UNIT_TEST_NAME} PUBLIC ${LIBRARY_NAME})
+    target_link_libraries(${UNIT_TEST_NAME} PRIVATE ${CONAN_CATCH2})
 
     if(ENABLE_COVERAGE)
         set(COVERAGE_MAIN "coverage")
