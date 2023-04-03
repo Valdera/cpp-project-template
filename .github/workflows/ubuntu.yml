@@ -15,9 +15,7 @@ jobs:
     - name: Install
       run: |
         make install
-        pip install conan==1.59.0 --user
-        pip show conan
-        conan user
+        make install_conan
         make install_doc
     - name: prepare
       run: |

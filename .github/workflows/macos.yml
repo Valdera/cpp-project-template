@@ -14,7 +14,9 @@ jobs:
     - uses: actions/setup-python@v2
     - name: Install
       run: |
-        make install_conan
+        pip install conan==1.59.0 --user
+        pip show conan
+        conan user
     - name: prepare
       run: |
         make prepare
