@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: install
+    - uses: actions/setup-python@v2
+    - name: Install
       run: |
-        make install_tests
+        make install
+        make install_conan
+        make install_doc
     - name: prepare
       run: |
         make prepare
