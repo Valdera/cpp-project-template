@@ -17,9 +17,9 @@ jobs:
         brew install conan@1
         echo 'export PATH="/usr/local/opt/conan@1/bin:$PATH"' >> /Users/runner/.bash_profile
         source /Users/runner/.bash_profile
-        conan user
     - name: prepare
       run: |
+        conan user
         make prepare
     - name: configure
       run: |
