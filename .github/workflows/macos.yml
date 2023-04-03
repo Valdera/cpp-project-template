@@ -15,23 +15,19 @@ jobs:
     - name: install
       run: |
         brew install conan@1
-        echo 'export PATH="/usr/local/opt/conan@1/bin:$PATH"' >> /Users/runner/.bash_profile
-        source /Users/runner/.bash_profile
+        export PATH="/usr/local/opt/conan@1/bin:$PATH"
         conan user
     - name: prepare
-      uses: nick-fields/retry@v2
-      with:
-        max_attempts: 3
-        retry_on: error
-        timeout_seconds: 5
-        command: |
-          export PATH="/usr/local/opt/conan@1/bin:$PATH"
-          make prepare
+      run: |
+        export PATH="/usr/local/opt/conan@1/bin:$PATH"
+        make prepare
     - name: configure
       run: |
+        export PATH="/usr/local/opt/conan@1/bin:$PATH"
         cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
     - name: building
       run: |
+        export PATH="/usr/local/opt/conan@1/bin:$PATH"
         cmake --build build --config Debug --target unit_tests -j4
     - name: testing
       run: |
