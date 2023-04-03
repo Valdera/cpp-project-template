@@ -20,7 +20,7 @@ jobs:
         make prepare
     - name: configure
       run: |
-        cmake -H"." -Bbuild -T host=x86 -A x64 -DCONAN_DISABLE_CHECK_COMPILER=Off -DCMAKE_BUILD_TYPE="Debug"
+        cmake -H"." -Bbuild -T host=x86 -A x64 -DCONAN_DISABLE_CHECK_COMPILER=On -DCMAKE_BUILD_TYPE="Debug"
     - name: building
       run: |
         cmake --build build --config Debug --target unit_tests -j4
