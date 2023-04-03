@@ -12,15 +12,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
-    - name: Install
+    - name: install
       run: |
         brew install conan@1
         echo 'export PATH="/usr/local/opt/conan@1/bin:$PATH"' >> /Users/runner/.bash_profile
         source /Users/runner/.bash_profile
         conan user
-    - name: prepare
+    - name: wait-for-source
       run: |
         sleep 5s
+    - name: prepare
+      run: |
         make prepare
     - name: configure
       run: |
