@@ -22,7 +22,7 @@ install_doc: install_min
 	sudo apt-get install doxygen
 	pip install jinja2 Pygments
 
-setup:
+install_conan:
 	pip install conan==1.59.0 --user
 	conan user
 
