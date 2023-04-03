@@ -18,12 +18,14 @@ jobs:
         echo 'export PATH="/usr/local/opt/conan@1/bin:$PATH"' >> /Users/runner/.bash_profile
         source /Users/runner/.bash_profile
         conan user
-    - name: wait-for-source
-      run: |
-        sleep 5s
     - name: prepare
-      run: |
-        make prepare
+      uses: nick-fields/retry@v2
+      with:
+        max_attempts: 3
+        retry_on: error
+        timeout_seconds: 5
+        command: |
+          make prepare
     - name: configure
       run: |
         cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
