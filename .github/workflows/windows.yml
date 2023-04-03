@@ -28,7 +28,6 @@ jobs:
       run: |
         cd build
         ls
-        cd tests
+        cd bin
         ls
-        cd Debug
         .\unit_tests.exe
