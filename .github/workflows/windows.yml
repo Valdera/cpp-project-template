@@ -11,6 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
     - name: install
       run: |
         make install_conan
