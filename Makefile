@@ -37,5 +37,5 @@ prepare:
 init_cmake:
 	cd build && cmake .. && cd ..
 
-build_app:
+build_exec:
 	cd build && cmake --build . && cd ..
