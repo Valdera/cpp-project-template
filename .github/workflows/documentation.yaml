@@ -15,8 +15,8 @@ jobs:
     - uses: actions/setup-python@v2
     - name: Install
       run: |
-        make install |
-        make install_conan |
+        make install
+        make install_conan
         make install_doc
     - name: prepare
       run: |
