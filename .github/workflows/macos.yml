@@ -14,8 +14,8 @@ jobs:
     - uses: actions/setup-python@v2
     - name: Install
       run: |
-        brew install conan@1
         echo 'export PATH="/usr/local/opt/conan@1/bin:$PATH"' >> /Users/runner/.bash_profile
+        brew install conan@1
         source /Users/runner/.bash_profile
     - name: prepare
       run: |
