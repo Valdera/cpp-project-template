@@ -10,7 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Options
 option(ENABLE_TESTING "Enable a Unit Testing build" ON)
-option(ENABLE_COVERAGE "Enable a Code Coverage build." ON)
+option(ENABLE_COVERAGE "Enable a Code Coverage build." OFF)
 option(ENABLE_WARNINGS "Enable to add warnings to a target." OFF)
 
 # Project/Library names
