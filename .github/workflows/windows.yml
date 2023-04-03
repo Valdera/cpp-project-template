@@ -27,7 +27,5 @@ jobs:
     - name: testing
       run: |
         cd build
-        ls
         cd bin
-        ls
         .\unit_tests.exe
