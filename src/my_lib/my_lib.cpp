@@ -1,5 +1,4 @@
 #include "my_lib.h"
-#include <catch2/catch.hpp>
 #include <iostream>
 #include "config.hpp"
 

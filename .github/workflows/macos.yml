@@ -20,6 +20,7 @@ jobs:
       run: |
         export PATH="/usr/local/opt/conan@1/bin:$PATH"
         make prepare
+        make setup_conan
     - name: configure
       run: |
         export PATH="/usr/local/opt/conan@1/bin:$PATH"

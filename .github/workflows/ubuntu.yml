@@ -19,6 +19,7 @@ jobs:
     - name: prepare
       run: |
         make prepare
+        make setup_conan
     - name: configure
       run: |
         cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On

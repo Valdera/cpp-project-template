@@ -1,12 +1,12 @@
-#include <iostream>
+#define FMT_HEADER_ONLY
 
 #include <fmt/format.h>
 #include <spdlog/spdlog.h>
 #include <cxxopts.hpp>
+#include <iostream>
 #include <nlohmann/json.hpp>
-#include "my_lib.h"
-
 #include "config.hpp"
+#include "my_lib.h"
 
 int main(int argc, char** argv) {
   int i = 0;

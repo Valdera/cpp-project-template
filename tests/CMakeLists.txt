@@ -5,7 +5,7 @@ if(ENABLE_TESTING)
     add_executable(${UNIT_TEST_NAME} ${TEST_SOURCES} ${TEST_HEADERS})
 
     target_link_libraries(${UNIT_TEST_NAME} PUBLIC ${LIBRARY_NAME})
-    target_link_libraries(${UNIT_TEST_NAME} PRIVATE ${CONAN_CATCH2})
+    target_link_libraries(${UNIT_TEST_NAME} PRIVATE Catch2::Catch2)
 
     if(ENABLE_COVERAGE)
         set(COVERAGE_MAIN "coverage")
@@ -16,8 +16,6 @@ if(ENABLE_TESTING)
             "${PROJECT_SOURCE_DIR}/external/*"
             "${PROJECT_SOURCE_DIR}/tests/*"
             "${PROJECT_SOURCE_DIR}/build/*"
-            "${CONAN_CATCH2_ROOT}/*"
-            "${CONAN_CXXOPTS_ROOT}/*"
             "/usr/include/*")
         setup_target_for_coverage_lcov(
             NAME

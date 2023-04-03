@@ -18,6 +18,7 @@ jobs:
     - name: prepare
       run: |
         make prepare
+        make setup_conan
     - name: configure
       run: |
         cmake -H"." -Bbuild -T host=x86 -A x64 -DCONAN_DISABLE_CHECK_COMPILER=On -DCMAKE_BUILD_TYPE="Debug"
