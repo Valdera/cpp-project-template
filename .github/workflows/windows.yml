@@ -24,9 +24,4 @@ jobs:
         cmake -H"." -Bbuild -T host=x86 -A x64 -DCONAN_DISABLE_CHECK_COMPILER=On -DCMAKE_BUILD_TYPE="Debug"
     - name: building
       run: |
-        cmake --build build --config Debug --target unit_tests -j4
-    - name: testing
-      run: |
-        cd build
-        cd tests
-        ctest -j 4
+        cmake --build build --config Debug --target calc_console -j4

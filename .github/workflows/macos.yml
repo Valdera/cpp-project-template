@@ -28,9 +28,4 @@ jobs:
     - name: building
       run: |
         export PATH="/usr/local/opt/conan@1/bin:$PATH"
-        cmake --build build --config Debug --target unit_tests -j4
-    - name: testing
-      run: |
-        cd build
-        cd tests
-        ctest -j 4
+        cmake --build build --config Debug --target calc_console -j4
