@@ -33,4 +33,4 @@ jobs:
       run: |
         cd build
         cd tests
-        ./unit_tests
+        ctest -j 4

@@ -1,1 +1,2 @@
-add_subdirectory(my_lib)
+add_subdirectory(libs)
+add_subdirectory(apps)

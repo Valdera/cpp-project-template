@@ -29,5 +29,4 @@ jobs:
       run: |
         cd build
         cd tests
-        cd Debug
-        .\unit_tests.exe
+        ctest -j 4

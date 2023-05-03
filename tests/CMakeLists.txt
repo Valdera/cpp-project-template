@@ -1,28 +1,28 @@
-if(ENABLE_TESTING)
-    set(TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
-    set(TEST_HEADERS "")
+include(Coverage)
 
-    add_executable(${UNIT_TEST_NAME} ${TEST_SOURCES} ${TEST_HEADERS})
+include(CTest)
+enable_testing()
 
-    target_link_libraries(${UNIT_TEST_NAME} PUBLIC ${LIBRARY_NAME})
-    target_link_libraries(${UNIT_TEST_NAME} PRIVATE Catch2::Catch2)
+include(GoogleTest)
+set(GoogleTest_FRAMEWORK_LIBRARY gtest_main gmock)
 
-    if(ENABLE_COVERAGE)
-        set(COVERAGE_MAIN "coverage")
-        set(COVERAGE_EXCLUDES
-            "${PROJECT_SOURCE_DIR}/app/*"
-            "${PROJECT_SOURCE_DIR}/cmake/*"
-            "${PROJECT_SOURCE_DIR}/docs/*"
-            "${PROJECT_SOURCE_DIR}/external/*"
-            "${PROJECT_SOURCE_DIR}/tests/*"
-            "${PROJECT_SOURCE_DIR}/build/*"
-            "/usr/include/*")
-        setup_target_for_coverage_lcov(
-            NAME
-            ${COVERAGE_MAIN}
-            EXECUTABLE
-            ${UNIT_TEST_NAME}
-            DEPENDENCIES
-            ${UNIT_TEST_NAME})
-    endif()
+add_subdirectory(libs)
+add_subdirectory(apps)
+
+set(COVERAGE_EXCLUDES
+    "${PROJECT_SOURCE_DIR}/cmake/*"
+    "${PROJECT_SOURCE_DIR}/docs/*"
+    "${PROJECT_SOURCE_DIR}/external/*"
+    "${PROJECT_SOURCE_DIR}/tests/*"
+    "${PROJECT_SOURCE_DIR}/build/*"
+    "/usr/include/*")
+
+if(ENABLE_COVERAGE)
+    setup_target_for_coverage_lcov(
+        NAME coverage
+        EXECUTABLE ctest -j 4 --test-dir tests
+        DEPENDENCIES
+            calc_test
+            calc_console_test
+    )
 endif()

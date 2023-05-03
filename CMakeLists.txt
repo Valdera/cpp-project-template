@@ -9,18 +9,18 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Options
-option(USE_CONAN "Whether to use conan" OFF)
+option(USE_CONAN "Whether to use conan" ON)
 option(USE_VCPKG "Whether to use vcpkg" OFF)
 
 option(ENABLE_WARNINGS "Enable to add warnings to a target." ON)
 option(ENABLE_WARNINGS_AS_ERRORS "Enable to treat warnings as errors." OFF)
 
 option(ENABLE_TESTING "Enable a Unit Testing build." ON)
-option(ENABLE_COVERAGE "Enable a Code Coverage build." OFF)
+option(ENABLE_COVERAGE "Enable a Code Coverage build." ON)
 
-option(ENABLE_INCLUDE_WHAT_YOU_USE "Enable to add iwyu." OFF)
+option(ENABLE_INCLUDE_WHAT_YOU_USE "Enable to add iwyu." ON)
 option(ENABLE_CLANG_TIDY "Enable to add clang tidy." ON)
-option(ENABLE_CPPCHECK "Enable to add cppcheck." OFF)
+option(ENABLE_CPPCHECK "Enable to add cppcheck." ON)
 
 option(ENABLE_SANITIZE_ADDR "Enable to sanitize address (Unix only)." OFF)
 option(ENABLE_SANITIZE_UNDEF "Enable to sanitize undefined (Unix only)." OFF)
@@ -29,8 +29,6 @@ option(ENABLE_CLANG_FORMAT "Enable to add clang-format." ON)
 option(ENABLE_CMAKE_FORMAT "Enable to add cmake-format." ON)
 
 # Project/Library names
-set(LIBRARY_NAME "lib")
-set(UNIT_TEST_NAME "unit_tests")
 set(EXECUTABLE_NAME "main")
 
 # CMake modules
@@ -63,14 +61,13 @@ endif()
 ## External Lib: Submodule
 # add_git_submodule(external/json)
 
-## External Lib: Conan
 if(USE_CONAN)
+    ## External Lib: Conan
     message("==> Using Conan")
     include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
     find_package(nlohmann_json)
     find_package(fmt)
     find_package(spdlog)
-    find_package(Catch2)
     find_package(cxxopts)
 elseif(USE_VCPKG)
     ## External Lib: VCPKG
@@ -79,7 +76,6 @@ elseif(USE_VCPKG)
     find_package(nlohmann_json)
     find_package(fmt)
     find_package(spdlog)
-    find_package(Catch2)
     find_package(cxxopts)
 else()
     ## External Lib: Fetch Content
@@ -99,42 +95,35 @@ else()
     FetchContent_MakeAvailable(fmt)
 
     FetchContent_Declare(
-        spdlog
-        GIT_REPOSITORY https://github.com/gabime/spdlog.git
-        GIT_TAG v1.11.0
-        GIT_SHALLOW TRUE)
-    FetchContent_MakeAvailable(spdlog)
-
-    FetchContent_Declare(
         cxxopts
         GIT_REPOSITORY https://github.com/jarro2783/cxxopts.git
         GIT_TAG v3.0.0
         GIT_SHALLOW TRUE)
     FetchContent_MakeAvailable(cxxopts)
-
-    FetchContent_Declare(
-        Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.9
-        GIT_SHALLOW TRUE)
-    FetchContent_MakeAvailable(Catch2)
 endif()
+
+# External Lib: Specific Library Source
+FetchContent_Declare(
+    FTXTUI
+    GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git
+    GIT_TAG v0.11
+    GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(FTXTUI)
 
 # Subdirectory
 add_subdirectory(external)
-add_subdirectory(configured)
 add_subdirectory(src)
-add_subdirectory(app)
-add_subdirectory(tests)
 
-install(
-    TARGETS ${EXECUTABLE_NAME}
-    EXPORT ${LIBRARY_NAME}
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin)
+if(ENABLE_TESTING)
+  message(STATUS "Build unit tests for the project. Tests should always be found in the test folder\n")
 
-install(
-    TARGETS ${LIBRARY_NAME}
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib)
+  FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG release-1.11.0
+    GIT_SHALLOW TRUE)
+  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+  FetchContent_MakeAvailable(googletest)
+
+  add_subdirectory(tests)
+endif()
