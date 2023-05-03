@@ -1,0 +1,12 @@
+digraph "/home/runner/work/cpp-project-template/cpp-project-template/src" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"];
+    dir_68267d1309a1af8e8297ef4c3efbcdba [shape=plaintext label="src"];
+  dir_53adf0b982dc8545998aae3f283a5a58 [shape=box label="apps" fillcolor="white" style="filled" color="red" URL="dir_53adf0b982dc8545998aae3f283a5a58.html"];
+  dir_87a455bccb09a92130c26a11a880c98a [shape=box label="libs" fillcolor="white" style="filled" color="red" URL="dir_87a455bccb09a92130c26a11a880c98a.html"];
+  }
+  dir_53adf0b982dc8545998aae3f283a5a58->dir_87a455bccb09a92130c26a11a880c98a [headlabel="1", labeldistance=1.5 headhref="dir_000001_000003.html"];
+}

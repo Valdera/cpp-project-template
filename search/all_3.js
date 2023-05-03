@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['print_5fhello_5fworld_4',['print_hello_world',['../my__lib_8cpp.html#a501e98503bb06e4809928757b9b9a77c',1,'print_hello_world():&#160;my_lib.cpp'],['../my__lib_8h.html#a501e98503bb06e4809928757b9b9a77c',1,'print_hello_world():&#160;my_lib.cpp']]]
+  ['gettui_9',['getTui',['../tui_8h.html#ae59e4d432408e8371cdfb5cfd2c9334a',1,'getTui():&#160;tui.cpp'],['../tui_8cpp.html#af7e9e8ac6c2145ea49dac502dbe0f4d1',1,'getTui():&#160;tui.cpp']]]
 ];

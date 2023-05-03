@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['set_5',['set',['../my__lib_2CMakeLists_8txt.html#a1eae6299259f4c1883ef119b5f4b0bbc',1,'set(LIBRARY_SOURCES &quot;${CMAKE_CURRENT_SOURCE_DIR}/my_lib.cpp&quot;) set(LIBRARY_HEADERS &quot;$:&#160;CMakeLists.txt'],['../my__lib_2CMakeLists_8txt.html#a3ddbfbe904bdf0d62178df205c3e98ac',1,'set(LIBRARY_INCLUDES &quot;./&quot; &quot;${CMAKE_BINARY_DIR}/configured_files/include&quot;) add_library($:&#160;CMakeLists.txt']]]
+  ['include_10',['include',['../apps_2calc__console_2CMakeLists_8txt.html#a8a64decb85abec27a4c715ffd6b57176',1,'CMakeLists.txt']]],
+  ['input_5fa_11',['input_a',['../tui_8cpp.html#a93e212b9463f7c2214b83a3d5bfe2c54',1,'tui.cpp']]],
+  ['input_5fb_12',['input_b',['../tui_8cpp.html#a47a21e21c6e77426ece89ed5eb55b531',1,'tui.cpp']]]
 ];
