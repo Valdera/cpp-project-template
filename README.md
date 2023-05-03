@@ -51,8 +51,3 @@ Library code goes into [src/](src/), main program code in [app/](app) and tests 
 - Conan (<= 2) or VCPKG
 - MSVC 2017 (or higher), G++9 (or higher), Clang++9 (or higher)
 - Code Coverage (only on GNU|Clang): lcov, gcovr
-
-## Reference
-
-- [C++ Project Template](https://github.com/franneck94/CppProjectTemplate)
-- [Google Style Clang Format](https://github.com/kehanXue/google-style-clang-format)
