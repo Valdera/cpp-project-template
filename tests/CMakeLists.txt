@@ -1,5 +1,3 @@
-include(Coverage)
-
 include(CTest)
 enable_testing()
 
