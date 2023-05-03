@@ -5,6 +5,8 @@
 ![Linux Build](https://github.com/Valdera/cpp-project-template/workflows/Ubuntu%20CI%20Test/badge.svg)
 ![Windows Build](https://github.com/Valdera/cpp-project-template/workflows/Windows%20CI%20Test/badge.svg)
 ![MacOS Build](https://github.com/Valdera/cpp-project-template/workflows/MacOS%20CI%20Test/badge.svg)
+[![codecov](https://codecov.io/gh/Valdera/cpp-project-template/branch/master/graph/badge.svg)](https://codecov.io/gh/Valdera/cpp-project-template)
+
 
 - Use of modern CMake for building and compiling
 - External libraries installed and managed by
@@ -21,9 +23,6 @@
 
 ``` text
 ├── CMakeLists.txt
-├── app
-│   ├── CMakesLists.txt
-│   └── main.cc
 ├── cmake
 │   └── cmake modules
 ├── docs
@@ -33,12 +32,31 @@
 │   ├── CMakesLists.txt
 │   ├── ...
 ├── src
-│   ├── CMakesLists.txt
-│   ├── my_lib.h
-│   └── my_lib.cc
+│   ├── apps
+│   │   ├── app1
+│       │   ├── CMakesLists.txt
+│   │   │   ├── app1.cpp
+│   │   │   └── include
+│   │   │       └── app1.h
+│   │   ├── ...
+│   └── libs
+│       ├── lib1
+│       │   ├── CMakesLists.txt
+│       │   ├── lib1.cpp
+│       │   └── include
+│       │       └── lib1.h
+│       ├── ...
 └── tests
-    ├── CMakeLists.txt
-    └── main.cc
+    ├── apps
+    │   ├── app1
+    │   │   ├── CMakesLists.txt
+    │   │   ├── app1_test.cpp
+    │   ├── ...
+    └── libs
+        ├── lib1
+        │   ├── CMakesLists.txt
+        │   ├── lib1_test.cpp
+        ├── ...
 ```
 
 Library code goes into [src/](src/), main program code in [app/](app) and tests go in [tests/](tests/).
